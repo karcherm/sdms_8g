@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: karcherm/action-install-jw@v0.0.2
+      - uses: karcherm/action-install-jw@v0.0.2a
         with:
           jwasm: true
       - name: Assemble the patch
