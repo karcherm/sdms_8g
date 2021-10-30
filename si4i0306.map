@@ -1,0 +1,5 @@
+# segname  fileofs  base  limit
+SCSICODE   0x10000     0  0x3FFF
+
+#       algo firstofs lastofs checkofs
+!CHKSUM SUM8 0x10000  0x13FFF 0x10052

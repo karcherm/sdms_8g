@@ -1,0 +1,2 @@
+# segname  fileofs  base  limit
+SCSICODE    0x8000     0  0x3FFF
