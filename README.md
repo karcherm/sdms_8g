@@ -10,8 +10,8 @@ To apply the patch, you need the assembled form of the patch, which can be gener
 
 To apply an object file as patch, my tool [omfpatch](https://github.com/karcherm/omfpatch) can be used. [Release 1.1](https://github.com/karcherm/omfpatch/releases/tag/v1.1) is known to work with this patch. You can choose to download either the DOS or the Win32 version of omfpatch depending on the system you want to use to apply the patch. The SDMS BIOS is typically part of the system BIOS. I tested this patch on two different ASUS boards, that both contained the SDMS BIOS in the *uncompressed* part of the ROM image. This repository contains MAP files for OMFPATCH to tell OMFPATCH where the SDMS BIOS is located in the corresponding ROM image.
 
-- si4i0306.map: The MAP file for BIOS version 3.06 for the Asus PVI/I-SP3 board
-- pcii0306.map: The MAP file for BIOS version 3.06 for the Asus PCI/I-SP3G board
+- si4i0306.map: The MAP file for BIOS version 3.06 for the Asus PVI-486SP3 board
+- pcii0306.map: The MAP file for BIOS version 3.06 for the Asus PCI/I-486SP3G board
 
 The map files are included in the binary release as well as the object file. When you downloaded and extracted
 - A suitable version of omfpatch
@@ -30,7 +30,7 @@ If you patch your BIOS and something goes wrong, the computer may become unboota
 Other mainboards
 ----------------
 
-As this patch is directly patching at hardcoded offsets, it *only* works on the version 3.07.00 of the NCR BIOS. If your SDMS BIOS reports this version, it is very likely that this patch is applicable to your mainboard, too. If the SDMS BIOS is uncompressed, as it is in the Asus boards, you can use one of the Asus MAP files as example. I suggest you use the si4i0306.map file, as this file also contains a directive for omfpatch to update the checksum of the SDMS BIOS. The PCI/I-SP3G BIOS doesn't care about the SDMS BIOS checksum, whereas the PVI/I-SP3 BIOS does. Your mainboard might do so, too, so updating the checksum is generally a good idea.
+As this patch is directly patching at hardcoded offsets, it *only* works on the version 3.07.00 of the NCR BIOS. If your SDMS BIOS reports this version, it is very likely that this patch is applicable to your mainboard, too. If the SDMS BIOS is uncompressed, as it is in the Asus boards, you can use one of the Asus MAP files as example. I suggest you use the si4i0306.map file, as this file also contains a directive for omfpatch to update the checksum of the SDMS BIOS. The PCI/I-486SP3G BIOS doesn't care about the SDMS BIOS checksum, whereas the PVI-486SP3 BIOS does. Your mainboard might do so, too, so updating the checksum is generally a good idea.
 
 You need to find the SDMS BIOS in your ROM image. You can easily identify it by strings saying "SDMS" and "NCRPCI". It should start at an offset like 8000, C000 or 10000. You need to the first number in the SCSICODE segment definition, as well as all three numbers in the `!CHKSUM` line. The si4i0306.map file is pointing to an SDMS BIOS at offset 10000 in the file.
 
